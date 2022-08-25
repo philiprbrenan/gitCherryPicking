@@ -69,6 +69,8 @@ sub switchToBranch($)                                                           
 say STDERR qx(rm -rf $git);
 makePath $git;
 say STDERR qx(cd $git; git init);
+say STDERR qx(cd $git; git config --global user.email "you\@example.com");
+say STDERR qx(cd $git;  git config --global user.name "Your Name");
 owf($file, $data);                                                              # Main
 
 makeBranch("main");
