@@ -60,12 +60,18 @@ sub makeBranch($)                                                               
   say STDERR qx(cd $git; git checkout -b $branch; git status; cat test.txt);
  }
 
-sub switchToBranch($)                                                           # Swicth to an existing branch
+sub switchToBranch($)                                                           # Switch to an existing branch
  {my ($branch) = @_;                                                            # Branch
   say STDERR qq(Switch to $branch);
   say STDERR qx(cd $git; git checkout $branch; git status;  cat test.txt);
  }
 
+sub title($)                                                                    # Print a title
+ {my ($title) = @_;                                                             # Title
+  say STDERR pad($title, 120, "_");
+ }
+
+title("Initialize git");
 say STDERR qx(rm -rf $git);
 makePath $git;
 say STDERR qx(cd $git; git init);
@@ -73,21 +79,26 @@ say STDERR qx(cd $git; git config --global user.email "you\@example.com");
 say STDERR qx(cd $git;  git config --global user.name "Your Name");
 owf($file, $data);                                                              # Main
 
+title("Create main");
 makeBranch("main");
 commit("main");
 
+title("Create main->e3");
 makeBranch("e3");
 edit(q(a), q(a E3));
 commit("e3");
 
+title("Create main->main2");
 switchToBranch("main");
 edit(q(d), q(d main));
 commit("main");
 
+title("Create main2->a1");
 makeBranch("a1");
 edit(q(9 i), q(9 i a1));
 commit("a1");
 
+title("Apply main2->a1 to e3");
 switchToBranch("e3");
 say STDERR qx(cd $git; cat test.txt; git cherry-pick main..a1; cat test.txt);
 commit("main");
