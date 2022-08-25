@@ -47,27 +47,17 @@ jobs:
       with:
         ref: 'main'
 
-    - name: Install Test::Most
-      run: |
-        sudo cpan install -T Test::Most
-
     - name: Install Data::Dump
       run: |
         sudo cpan install -T Data::Dump
 
-    - name: Install Data::Table::text
+    - name: Install Data::Table::Text
       run: |
         sudo cpan install -T Data::Table::Text
 
-    - name: Download other repos
-      run: |
-        curl -sL https://github.com/philiprbrenan/DataTableText/archive/refs/heads/main.zip > DataTableText.zip
-        unzip DataTableText
-        cp -R DataTableText-main/* .
-
     - name: Run
       run: |
-        perl -Ilib cherryPicking.pl
+        perl cherryPicking.pl
 END
 
 lll "Ubuntu work flow for $repo ", writeFileUsingSavedToken($user, $repo, $wf, $y);
