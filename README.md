@@ -17,7 +17,8 @@ Solution:
   git cherry-pick main2..a1
 ```
 
-You can see this solution in action by looking at the actions associated with this repo which oproduces this output:
+You can see this solution in action by looking at the actions associated with
+this repo which produce the following output:
 
 ```
 perl cherryPicking.pl
@@ -219,5 +220,6 @@ nothing to commit, working tree clean
 9 i a1
 ```
 
-The last [file](https://en.wikipedia.org/wiki/Computer_file) shows that the one change made between __main2__ and __a1__ h
-as been applied to __e3__ while not applying the change made between __main__ and __main2__.
+The last [file](https://en.wikipedia.org/wiki/Computer_file) shows that the one change made between __main2__ and __a1__ has
+been applied to __e3__ while not applying the change made between __main__ and
+__main2__.
