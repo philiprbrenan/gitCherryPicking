@@ -7,7 +7,6 @@ use v5.30;
 use warnings FATAL => qw(all);
 use strict;
 use Carp;
-use Data::Dump qw(dump);
 use Data::Table::Text qw(:all);
 
 =pod
