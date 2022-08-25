@@ -20,7 +20,7 @@ Solution:
 You can see this solution in action by looking at the actions associated with
 this repo which produce the following output:
 
-[Action Log](https://github.com/philiprbrenan/gitCherryPicking/runs/8007026933?check_suite_focus=true)
+[Action Log - See section __run__](https://github.com/philiprbrenan/gitCherryPicking/runs/8007026933?check_suite_focus=true)
 
 ```
 perl cherryPicking.pl
