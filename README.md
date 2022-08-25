@@ -20,10 +20,14 @@ Solution:
 You can see this solution in action by looking at the actions associated with
 this repo which produce the following output:
 
+[Action Log](https://github.com/philiprbrenan/gitCherryPicking/runs/8007026933?check_suite_focus=true)
+
 ```
 perl cherryPicking.pl
 Initialize git__________________________________________________________________________________________________________
 
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git init
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
 hint: of your new repositories, which will suppress this warning, call:
@@ -36,10 +40,18 @@ hint:
 hint: 	git branch -m <name>
 Initialized empty Git repository in /home/runner/work/gitCherryPicking/gitCherryPicking/git/.git/
 
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git config --global user.email "you@example.com"
 
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git config --global user.name "Your Name"
 
 Create main_____________________________________________________________________________________________________________
 Create main
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git checkout -b main
+git status
+cat test.txt
 Switched to a new branch 'main'
 On branch main
 
@@ -61,7 +73,12 @@ nothing added to commit but untracked files present (use "git add" to track)
 9 i
 
 Commit main
-[main (root-commit) 280f2c0] main
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git add /home/runner/work/gitCherryPicking/gitCherryPicking/git/test.txt
+git commit -m "main"
+git status
+cat test.txt
+[main (root-commit) 0e1a6dd] main
  1 file changed, 9 insertions(+)
  create mode 100644 test.txt
 On branch main
@@ -78,6 +95,10 @@ nothing to commit, working tree clean
 
 Create main->e3_________________________________________________________________________________________________________
 Create e3
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git checkout -b e3
+git status
+cat test.txt
 Switched to a new branch 'e3'
 On branch e3
 nothing to commit, working tree clean
@@ -92,7 +113,12 @@ nothing to commit, working tree clean
 9 i
 
 Commit e3
-[e3 944618c] e3
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git add /home/runner/work/gitCherryPicking/gitCherryPicking/git/test.txt
+git commit -m "e3"
+git status
+cat test.txt
+[e3 501bff6] e3
  1 file changed, 1 insertion(+), 1 deletion(-)
 On branch e3
 nothing to commit, working tree clean
@@ -108,6 +134,10 @@ nothing to commit, working tree clean
 
 Create main->main2______________________________________________________________________________________________________
 Switch to main
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git checkout main
+git status
+cat test.txt
 Switched to branch 'main'
 On branch main
 nothing to commit, working tree clean
@@ -122,7 +152,12 @@ nothing to commit, working tree clean
 9 i
 
 Commit main
-[main b747ee0] main
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git add /home/runner/work/gitCherryPicking/gitCherryPicking/git/test.txt
+git commit -m "main"
+git status
+cat test.txt
+[main 9827de8] main
  1 file changed, 1 insertion(+), 1 deletion(-)
 On branch main
 nothing to commit, working tree clean
@@ -138,6 +173,10 @@ nothing to commit, working tree clean
 
 Create main2->a1________________________________________________________________________________________________________
 Create a1
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git checkout -b a1
+git status
+cat test.txt
 Switched to a new branch 'a1'
 On branch a1
 nothing to commit, working tree clean
@@ -152,7 +191,12 @@ nothing to commit, working tree clean
 9 i
 
 Commit a1
-[a1 5327615] a1
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git add /home/runner/work/gitCherryPicking/gitCherryPicking/git/test.txt
+git commit -m "a1"
+git status
+cat test.txt
+[a1 6407af5] a1
  1 file changed, 1 insertion(+), 1 deletion(-)
 On branch a1
 nothing to commit, working tree clean
@@ -168,6 +212,10 @@ nothing to commit, working tree clean
 
 Apply main2->a1 to e3___________________________________________________________________________________________________
 Switch to e3
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git checkout e3
+git status
+cat test.txt
 Switched to branch 'e3'
 On branch e3
 nothing to commit, working tree clean
@@ -181,6 +229,10 @@ nothing to commit, working tree clean
 8 h
 9 i
 
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+cat test.txt
+git cherry-pick main..a1
+cat test.txt
 1 a E3
 2 b
 3 c
@@ -191,8 +243,8 @@ nothing to commit, working tree clean
 8 h
 9 i
 Auto-merging test.txt
-[e3 f3b5d80] a1
- Date: Thu Aug 25 00:54:27 2022 +0000
+[e3 b1c8190] a1
+ Date: Thu Aug 25 01:08:25 2022 +0000
  1 file changed, 1 insertion(+), 1 deletion(-)
 1 a E3
 2 b
@@ -205,6 +257,11 @@ Auto-merging test.txt
 9 i a1
 
 Commit main
+cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
+git add /home/runner/work/gitCherryPicking/gitCherryPicking/git/test.txt
+git commit -m "main"
+git status
+cat test.txt
 On branch e3
 nothing to commit, working tree clean
 On branch e3
