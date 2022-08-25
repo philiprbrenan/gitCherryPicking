@@ -11,12 +11,19 @@ use Data::Table::Text qw(:all);
 
 =pod
 
+Assume that we have the following set of git branches:
+
      main  -> E3
       |
      main2 -> A1
 
-Apply changes made to get from main2 to A1 without applying changes
-made from main to main2
+We want to apply just the changes made from main2 to a1 to e3 but no other
+changes that were made between main and main2.
+
+Solution:
+
+  git checkout e3
+  git cherry-pick main2..a1
 
 =cut
 my $home   = currentDirectory;                                                  # Home folder
