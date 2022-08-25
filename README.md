@@ -8,8 +8,8 @@ Assume that we have the following set of git branches:
       |
      main2 -> A1
 ```
-We want to apply just the changes made from main2 to a1 to e3 but no other
-changes that were made between main and main2.
+We want to apply just the changes made from __main2__ to __a1__ to __e3__ but no other
+changes that were made between __main__ and __main2__.
 
 Solution:
 ```
