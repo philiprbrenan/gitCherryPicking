@@ -14,7 +14,7 @@ changes that were made between __main__ and __main2__.
 Solution:
 ```
   git checkout e3
-  git cherry-pick main2..a1
+  git cherry-pick a1
 ```
 
 You can see this solution in action by looking at the actions associated with
@@ -231,7 +231,7 @@ nothing to commit, working tree clean
 
 cd /home/runner/work/gitCherryPicking/gitCherryPicking/git/
 cat test.txt
-git cherry-pick main..a1
+git cherry-pick a1
 cat test.txt
 1 a E3
 2 b
