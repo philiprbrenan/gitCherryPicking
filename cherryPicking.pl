@@ -25,6 +25,20 @@ Solution:
   git checkout e3
   git cherry-pick main2..a1
 
+Now suppose we make soem more changes to main
+
+     main  -> E3
+      |
+     main2 -> A1
+
+We want to apply just the changes made from main2 to a1 to e3 but no other
+changes that were made between main and main2.
+
+Solution:
+
+  git checkout e3
+  git cherry-pick main2..a1
+
 =cut
 my $home   = currentDirectory;                                                  # Home folder
 my $git    = fpd $home, qw(git);                                                # Test git folder
@@ -106,5 +120,5 @@ commit("a1");
 
 title("Apply main2->a1 to e3");
 switchToBranch("e3");
-eg qq(cat test.txt; git cherry-pick main..a1; cat test.txt);
+eg qq(cat test.txt; git cherry-pick a1; cat test.txt);
 commit("main");
