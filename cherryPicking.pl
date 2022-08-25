@@ -48,22 +48,28 @@ sub edit($$)                                                                    
   owf($file, $d);
  }
 
+sub eg($)                                                                       # Execute some git hub commands
+ {my ($command) = @_;                                                           # Commands
+  say STDERR qq(cd $git; $command);
+  say STDERR qx(cd $git; $command)
+ }
+
 sub commit($)                                                                   # Commit a new branch
  {my ($branch) = @_;                                                            # Branch
   say STDERR qq(Commit $branch);
-  say STDERR qx(cd $git; git add $file; git commit -m "$branch"; git status; cat test.txt);
+  eg qq(git add $file; git commit -m "$branch"; git status; cat test.txt);
  }
 
 sub makeBranch($)                                                               # Create a new branch
  {my ($branch) = @_;                                                            # Branch
   say STDERR qq(Create $branch);
-  say STDERR qx(cd $git; git checkout -b $branch; git status; cat test.txt);
+  eg qq(git checkout -b $branch; git status; cat test.txt);
  }
 
 sub switchToBranch($)                                                           # Switch to an existing branch
  {my ($branch) = @_;                                                            # Branch
   say STDERR qq(Switch to $branch);
-  say STDERR qx(cd $git; git checkout $branch; git status;  cat test.txt);
+  eg qq(git checkout $branch; git status;  cat test.txt);
  }
 
 sub title($)                                                                    # Print a title
@@ -74,9 +80,9 @@ sub title($)                                                                    
 title("Initialize git");
 say STDERR qx(rm -rf $git);
 makePath $git;
-say STDERR qx(cd $git; git init);
-say STDERR qx(cd $git; git config --global user.email "you\@example.com");
-say STDERR qx(cd $git;  git config --global user.name "Your Name");
+eg qq(git init);
+eg qq(git config --global user.email "you\@example.com");
+eg qq(git config --global user.name "Your Name");
 owf($file, $data);                                                              # Main
 
 title("Create main");
@@ -100,5 +106,5 @@ commit("a1");
 
 title("Apply main2->a1 to e3");
 switchToBranch("e3");
-say STDERR qx(cd $git; cat test.txt; git cherry-pick main..a1; cat test.txt);
+eg qq(cat test.txt; git cherry-pick main..a1; cat test.txt);
 commit("main");
