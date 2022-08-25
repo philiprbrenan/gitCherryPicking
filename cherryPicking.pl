@@ -50,7 +50,7 @@ sub edit($$)                                                                    
 
 sub eg($)                                                                       # Execute some git hub commands
  {my ($command) = @_;                                                           # Commands
-  say STDERR qq(cd $git; $command);
+  say STDERR qq(cd $git; $command) =~ s(;\s*) (\n)gsr;
   say STDERR qx(cd $git; $command)
  }
 
