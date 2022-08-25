@@ -47,6 +47,14 @@ jobs:
       with:
         ref: 'main'
 
+    - name: Install Test::Most
+      run: |
+        sudo cpan install -T Test::Most
+
+    - name: Install Data::Dump
+      run: |
+        sudo cpan install -T Data::Dump
+
     - name: Download other repos
       run: |
         curl -sL https://github.com/philiprbrenan/DataTableText/archive/refs/heads/main.zip > DataTableText.zip
